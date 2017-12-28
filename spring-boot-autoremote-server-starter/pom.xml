@@ -8,15 +8,14 @@
 
     <parent>
         <artifactId>spring-boot-autoremote</artifactId>
-        <groupId>mafoe</groupId>
-        <version>1.0</version>
+        <groupId>com.github.martinfoersterling.spring-boot-autoremote</groupId>
+        <version>1.1-SNAPSHOT</version>
     </parent>
 
     <dependencies>
         <dependency>
-            <groupId>mafoe</groupId>
+            <groupId>com.github.martinfoersterling.spring-boot-autoremote</groupId>
             <artifactId>spring-boot-autoremote-server-autoconfigure</artifactId>
         </dependency>
     </dependencies>
-
 </project>

@@ -14,12 +14,10 @@ import org.springframework.beans.factory.support.BeanDefinitionRegistryPostProce
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.ApplicationContextAware;
 import org.springframework.remoting.httpinvoker.HttpInvokerProxyFactoryBean;
-import org.springframework.stereotype.Component;
 
 /**
  * Connects the client with a number of exposed services via HttpInvokerProxyFactoryBean, using Spring HTTP invoker.
  */
-@Component
 public class ConsumeServicesPostProcessor implements BeanDefinitionRegistryPostProcessor, ApplicationContextAware {
 
     private static final Logger LOG = LoggerFactory.getLogger(ConsumeServicesPostProcessor.class);

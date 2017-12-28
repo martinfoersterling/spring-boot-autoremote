@@ -56,7 +56,7 @@ public class ConsumeServicesPostProcessorTest {
         assertEquals(nameAlreadyTakenService, bean);
     }
 
-    @Import({TestConsumeServiceConfiguration.class, ConsumeServicesPostProcessor.class})
+    @Import({TestConsumeServiceConfiguration.class})
     @TestConfiguration
     static class TestConfig {
 
@@ -67,6 +67,11 @@ public class ConsumeServicesPostProcessorTest {
         @Bean(name = "/NameAlreadyTakenService")
         String nameAlreadyTaken() {
             return "";
+        }
+
+        @Bean
+        static ConsumeServicesPostProcessor consumeServicesPostProcessor() {
+            return new ConsumeServicesPostProcessor();
         }
     }
 

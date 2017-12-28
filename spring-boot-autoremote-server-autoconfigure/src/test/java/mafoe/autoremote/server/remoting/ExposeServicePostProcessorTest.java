@@ -57,8 +57,7 @@ public class ExposeServicePostProcessorTest {
         assertEquals(nameAlreadyTakenService, bean);
     }
 
-    @Import({ExposeServicePostProcessor.class, TestServiceImpl.class, NotExtendingDemoServiceServiceImpl.class,
-            NameAlreadyTakenServiceImpl.class})
+    @Import({TestServiceImpl.class, NotExtendingDemoServiceServiceImpl.class, NameAlreadyTakenServiceImpl.class})
     @TestConfiguration
     static class TestConfig {
 
@@ -72,8 +71,13 @@ public class ExposeServicePostProcessorTest {
         }
 
         @Bean
-        ExposedServiceConfiguration exposedServiceConfiguration() {
+        static ExposedServiceConfiguration exposedServiceConfiguration() {
             return () -> MarkerInterface.class;
+        }
+
+        @Bean
+        static ExposeServicePostProcessor exposeServicePostProcessor() {
+            return new ExposeServicePostProcessor();
         }
     }
 

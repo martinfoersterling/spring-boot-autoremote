@@ -16,7 +16,6 @@ import org.springframework.context.ApplicationContext;
 import org.springframework.context.ApplicationContextAware;
 import org.springframework.core.annotation.AnnotationUtils;
 import org.springframework.remoting.httpinvoker.HttpInvokerServiceExporter;
-import org.springframework.stereotype.Component;
 import org.springframework.util.ClassUtils;
 
 import java.util.Arrays;
@@ -33,7 +32,6 @@ import java.util.Set;
  * which extends DemoService.java. Then a dynamic HttpInvokerServiceExporter bean instance is created at the endpoint
  * "/BookService" to expose the service implementation for the Spring HTTP invoker mechanism.
  */
-@Component
 public class ExposeServicePostProcessor implements BeanDefinitionRegistryPostProcessor, ApplicationContextAware {
 
     private static final Logger LOG = LoggerFactory.getLogger(ExposeServicePostProcessor.class);
@@ -93,6 +91,7 @@ public class ExposeServicePostProcessor implements BeanDefinitionRegistryPostPro
                 .addPropertyReference("service", serviceImplementationBeanName)
                 .addPropertyValue("serviceInterface", serviceInterfaceClass)
                 .addPropertyValue("remoteInvocationExecutor", configuration.getRemoteInvocationExecutor())
+                .setRole(BeanDefinition.ROLE_INFRASTRUCTURE)
                 .getBeanDefinition();
 
         String httpExporterBeanName = RemotingHelper.serviceInterfaceToEndpoint(serviceInterfaceClass);

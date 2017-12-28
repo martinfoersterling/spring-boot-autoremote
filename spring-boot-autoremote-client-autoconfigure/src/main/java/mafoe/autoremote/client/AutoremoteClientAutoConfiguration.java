@@ -11,7 +11,7 @@ import org.springframework.remoting.httpinvoker.HttpInvokerProxyFactoryBean;
 public class AutoremoteClientAutoConfiguration {
 
     @Bean
-    ConsumeServicesPostProcessor consumeServicesPostProcessor() {
+    static ConsumeServicesPostProcessor consumeServicesPostProcessor() {
         return new ConsumeServicesPostProcessor();
     }
 }
