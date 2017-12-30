@@ -4,7 +4,10 @@ language: java
 jdk:
   - oraclejdk8
 
-script: "mvn cobertura:cobertura"
+script:
+ - mvn clean
+ - mvn cobertura:cobertura
+ - mvn verify
 
 after_success:
   - bash <(curl -s https://codecov.io/bash)
