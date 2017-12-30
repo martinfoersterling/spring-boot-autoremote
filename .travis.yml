@@ -8,7 +8,8 @@ script:
  - mvn clean
  - mvn cobertura:cobertura
  - mvn verify
- - mvn versioneye:update
+ - if [ "$TRAVIS_BRANCH" = "master" ]; then mvn versioneye:update; fi
+
 
 after_success:
   - bash <(curl -s https://codecov.io/bash)
