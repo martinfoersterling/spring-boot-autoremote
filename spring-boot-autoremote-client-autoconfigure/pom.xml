@@ -9,7 +9,7 @@
     <parent>
         <artifactId>spring-boot-autoremote</artifactId>
         <groupId>com.github.martinfoersterling.spring-boot-autoremote</groupId>
-        <version>1.4</version>
+        <version>1.5-SNAPSHOT</version>
     </parent>
 
     <dependencies>
